@@ -1,20 +1,50 @@
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
+import Button from './components/Button';
+import Card from './components/Card';
 
-export default function App() {
-
+const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground 
-      source={require('./assets/background.png')} 
-      resizeMode="cover" 
-      style={styles.image}>
-        <Text>It's your birthday!</Text>
-        <StatusBar style="auto" />
-      </ImageBackground>
-    </View>
+    <ImageBackground 
+    source={require('./assets/background.png')} 
+    resizeMode="cover" 
+    style={styles.image}>
+      <StatusBar style="auto" />
+      <Button />
+    </ImageBackground>
+  </View>
   );
-}
+};
+const CardScreen = ({ navigation, route }) => {
+  return (
+  <View style={styles.container}>
+  <ImageBackground 
+  source={require('./assets/background.png')} 
+  resizeMode="cover" 
+  style={styles.image}>
+    <StatusBar style="auto" />
+    <Card />
+  </ImageBackground>
+</View>
+)};
+
+    
+const Stack = createNativeStackNavigator();
+
+  const App = () => {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Card" component={CardScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  };
 
 const styles = StyleSheet.create({
   container: {
@@ -29,3 +59,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default App;
