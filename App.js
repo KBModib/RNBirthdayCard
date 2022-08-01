@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '-2deg' }],
   },
   heading: {
-    fontSize: 40,
+    fontSize: 35,
     fontWeight: 'bold',
     color: '#FD49A0',
     textAlign: 'center',
-    marginTop: 350,
+    marginTop: 365,
     fontFamily: 'sans-serif-condensed',  
 },
 text: {
@@ -68,7 +68,7 @@ text: {
 imagecard: {
     flex: 1,
     width: '100%',
-    height: '60%',
+    height: '70%',
     marginTop: '10%',
   }
 
